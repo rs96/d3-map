@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# d3-map
+
+This is an interactive map made in d3
+
 ## Available Scripts
 
 In the project directory, you can run:
