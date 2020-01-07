@@ -2,17 +2,11 @@ import React, { useEffect } from "react";
 import * as d3 from "d3";
 
 import "./Map.css";
+import { simpleGB as data, locations } from "../../Constants/shapes";
 
 const Map = () => {
-  const width = 100;
-  const height = 100;
-  const exampleData = [
-    { x: 10, y: 20 },
-    { x: 20, y: 20 },
-    { x: 20, y: 40 },
-    { x: 10, y: 40 },
-    { x: 10, y: 20 }
-  ];
+  const width = 200;
+  const height = 200;
 
   const xScale = d3
     .scaleLinear()
@@ -26,8 +20,8 @@ const Map = () => {
 
   const line = d3
     .line()
-    .x(exampleData => xScale(exampleData.x))
-    .y(exampleData => yScale(exampleData.y));
+    .x(data => xScale(data.x))
+    .y(data => yScale(data.y));
 
   useEffect(() => {
     let svg = d3
@@ -38,9 +32,19 @@ const Map = () => {
 
     svg
       .append("path")
-      .datum(exampleData)
+      .datum(data)
       .attr("class", "line")
       .attr("d", line);
+
+    svg
+      .selectAll("locations")
+      .data(locations)
+      .enter()
+      .append("circle")
+      .attr("class", "location")
+      .attr("cx", locations => xScale(locations.x))
+      .attr("cy", locations => yScale(locations.y))
+      .attr("r", 3);
   });
 
   return <svg id="mapSVG" />;
