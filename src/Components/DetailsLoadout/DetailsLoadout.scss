@@ -1,0 +1,9 @@
+.locationDetailsLoadout {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  .locationName {
+    font-size: 20px;
+  }
+}
