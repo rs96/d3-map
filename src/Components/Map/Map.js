@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
 
-import "./Map.css";
+import "./Map.scss";
 import { simpleGB as data, locations } from "../../Constants/shapes";
 
 const Map = () => {
