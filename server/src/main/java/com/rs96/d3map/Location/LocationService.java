@@ -12,10 +12,10 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class LocationService {
-	@NonNull
-	LocationRepository locationRepository;
+	@NonNull final LocationRepository locationRepository;
+	Long lastId = 0L;
 
 	public List<Location> getLocations(){
 		List<Location>  results = new ArrayList<>();
@@ -23,7 +23,13 @@ public class LocationService {
 		return results;
 	}
 
-	public void addLocation(Location location){
-		locationRepository.save(location);
+	public Location addLocation(String name, Float latitude, Float longitude){
+		Location location = new Location(nextId(),name,latitude,longitude);
+		return locationRepository.save(location);
+	}
+
+	private Long nextId(){
+		lastId++;
+		return lastId;
 	}
 }

@@ -32,8 +32,9 @@ public class LocationController {
 		return locations.stream().map(LocationDto.Response::new).collect(Collectors.toList());
 	}
 
-	@PostMapping("/locations/addlocation")
-	public void addLocation(String name, Float latitude, Float longitude){
-		locationService.addLocation(new Location(1L,"New Name",latitude,longitude));
+	@PostMapping("/locations/add")
+	public ResponseEntity<LocationDto.Response> addLocation(final @NonNull LocationDto.Request.Location newLocation){
+		final Location location = locationService.addLocation(newLocation.getName(),newLocation.getLatitude(),newLocation.getLongitude());
+		return new ResponseEntity<>(new LocationDto.Response(location), HttpStatus.CREATED);
 	}
 }
