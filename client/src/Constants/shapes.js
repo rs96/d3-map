@@ -14,9 +14,9 @@ export const simpleGB = [
   { x: 30, y: 15 }
 ];
 
-const GBNorthMost = { longitude: -3.22, latitude: 58.4 };
-const GBEastMost = { longitude: 1.46, latitude: 52.29 };
-const GBSouthMost = { longitude: -5.12, latitude: 49.57 };
-const GBWestMost = { longitude: -6.13, latitude: 56.42 };
+export const GBNorthMost = { longitude: -3.22, latitude: 58.4 };
+export const GBEastMost = { longitude: 1.46, latitude: 52.29 };
+export const GBSouthMost = { longitude: -5.12, latitude: 49.57 };
+export const GBWestMost = { longitude: -6.13, latitude: 56.42 };
 
 export const locations = [{ x: 50, y: 50 }];

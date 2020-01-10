@@ -6,8 +6,8 @@ const INITIAL_STATE = {
     latitude: 0
   },
   locations: [
-    { id: 1, name: "Newcastle", longitude: 53.5, latitude: 1.6 },
-    { id: 2, name: "Edinburgh", longitude: 52.23, latitude: 1.58 }
+    { id: 1, name: "Newcastle", longitude: -1.62, latitude: 54.98 },
+    { id: 2, name: "Edinburgh", longitude: -3.19, latitude: 55.95 }
   ]
 };
 
